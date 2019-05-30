@@ -13,8 +13,19 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
     <body>
-        {% include 'components/navbar.html.twig' %}
-        {% block body %}{% endblock %}
+    <div class="col-xs-12">
+        <div class="row">
+            {% include 'components/navbar.html.twig' %}
+            <div class="col-xs-2 text-center bg-primary">
+                {% include 'components/menuLeft.html.twig' %}
+            </div>
+            <div class="col-xs-10">
+                <div class="row">
+                    {% include 'pages.base.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
