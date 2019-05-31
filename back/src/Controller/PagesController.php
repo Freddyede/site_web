@@ -39,9 +39,11 @@ class PagesController extends AbstractController {
         if($id != -1){
             $page = $this->getDoctrine()->getRepository(Pages::class)->find($id);
             $titre = 'Modification'.' '.$page->getTitre();
+            $menuLeft = true;
         }else{
             $titre = 'Création '.$this->titre;
             $page = new Pages();
+            $menuLeft = null;
         }
         $form = $this->createForm(PagesRepository::class,$page);
         $form->handleRequest($request);
@@ -57,7 +59,7 @@ class PagesController extends AbstractController {
             'titre'=>$titre,
             'page'=>$page,
             'form'=>$form->createView(),
-            'menuLeft'=>null,
+            'menuLeft'=>$menuLeft,
         ));
     }
 }
